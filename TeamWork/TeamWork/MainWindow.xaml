@@ -5,18 +5,25 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TeamWork"
         mc:Ignorable="d"
-        Title="生日倒计时" Height="594.666" Width="701.333">
-    <Grid x:Name="___无名称_">
+        Title="生日倒计时" Height="700" Width="700">
+    <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="39*"/>
             <ColumnDefinition Width="308*"/>
         </Grid.ColumnDefinitions>
-        <TextBlock HorizontalAlignment="Left" Margin="40,189,0,0" TextWrapping="Wrap" Text="您的星座为：" VerticalAlignment="Top" FontSize="24" Height="35" Grid.ColumnSpan="2"/>
-        <Button x:Name="search" Content="查询今日运势" HorizontalAlignment="Left" Margin="40,294,0,0" VerticalAlignment="Top" Width="142" FontSize="18" Height="35" Click="Search_Click" Grid.ColumnSpan="2"/>
-        <TextBox x:Name="ConstellationOutput" Grid.Column="1" HorizontalAlignment="Left" Height="35" Margin="111.4,189,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="80" FontSize="24"/>
-        <TextBox x:Name="万天计划" Grid.Column="1" HorizontalAlignment="Left" Height="35" Margin="135.4,254,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="134" FontSize="24"/>
-        <TextBlock HorizontalAlignment="Left" Margin="40,254,0,0" TextWrapping="Wrap" Text="万天纪念日为：" VerticalAlignment="Top" Height="35" FontSize="24" Grid.ColumnSpan="2"/>
-        <RichTextBox x:Name="Rbox" HorizontalAlignment="Left" Height="178" Margin="40,356,0,0" VerticalAlignment="Top" Width="605" Grid.ColumnSpan="2"/>
+        <TextBlock HorizontalAlignment="Left" Margin="40,200,0,0" TextWrapping="Wrap" Text="您的星座为：" VerticalAlignment="Top" FontSize="24" Height="35" Grid.ColumnSpan="2"/>
+        <Button x:Name="search" Content="查询今日运势" HorizontalAlignment="Left" Margin="40,360,0,0" VerticalAlignment="Top" Width="142" FontSize="18" Height="35" Click="Search_Click" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="ConstellationOutput" Grid.Column="1" HorizontalAlignment="Left" Height="35" Margin="110.6,200,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="80" FontSize="24"/>
+        <TextBox x:Name="万天计划" Grid.Column="1" HorizontalAlignment="Left" Height="35" Margin="207.6,280,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="134" FontSize="24"/>
+        <TextBlock HorizontalAlignment="Left" Margin="58.6,280,0,0" TextWrapping="Wrap" Text="天纪念日为：" VerticalAlignment="Top" Height="35" FontSize="24" Grid.Column="1"/>
+        <RichTextBox x:Name="Rbox" HorizontalAlignment="Left" Height="178" Margin="40,410,0,-23.2" VerticalAlignment="Top" Width="605" Grid.ColumnSpan="2">
+            <FlowDocument>
+                <Paragraph>
+                    <Run Text=""/>
+                </Paragraph>
+            </FlowDocument>
+        </RichTextBox>
+        <TextBox x:Name="多少天" HorizontalAlignment="Left" Height="35" Margin="40,280,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="92" Grid.ColumnSpan="2" FontSize="24" TextChanged="TextBox_TextChanged"/>
         <TextBox x:Name="InputYear" HorizontalAlignment="Left" Height="35" Margin="149.6,40,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="63" FontSize="24" TextChanged="InputYear_TextChanged" Grid.Column="1"/>
         <TextBlock HorizontalAlignment="Left" Margin="217.6,40,0,0" TextWrapping="Wrap" Text="年" VerticalAlignment="Top" FontSize="24" Height="35" Grid.Column="1"/>
         <TextBlock HorizontalAlignment="Left" Margin="301.6,40,0,0" TextWrapping="Wrap" Text="月" VerticalAlignment="Top" Height="35" FontSize="24" Grid.Column="1"/>
@@ -75,7 +82,6 @@
             <ComboBoxItem Content="31"/>
         </ComboBox>
         <Button x:Name="Assure" Content="确认" Grid.Column="1" HorizontalAlignment="Left" Margin="445.6,42,0,0" VerticalAlignment="Top" Width="75" Height="34" FontSize="18" Click="Assure_Click"/>
-
 
     </Grid>
 </Window>
