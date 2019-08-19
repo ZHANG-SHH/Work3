@@ -48,60 +48,17 @@ namespace TeamWork
 			//判断出生时间
 			if (year != null)
 			{
-                string datee = DateTime.Now.ToShortDateString();
-                string[] date0 = datee.Split('/');
-                int[] date1 = new int[3];
-                for (int j = 0; j < 3; j++)
-                {
-                    date1[j] = int.Parse(date0[j]);
-                }
-                DateTime dateTime1 = new DateTime(date1[0], date1[1], date1[2]);
+				int yearnew = Convert.ToInt32(year);
+				DateTime dateTimeInputReal = new DateTime(yearnew, month, date);
 
-                DateTime dateTime2 = new DateTime(Convert.ToInt32(year), month, date);
-				if (year != null && year <= date1[0])
-				{
-					int sum = 0;
-					if (Convert.ToInt32(year) < date1[0])
-					{
-						sum = dateTime1.DayOfYear + getYearDays(Convert.ToInt32(year)) - dateTime2.DayOfYear;
-						for (int j = Convert.ToInt32(year + 1); j < date1[0]; j++)
-						{
-							sum += getYearDays(j);
-						}
-					}
-					else sum = dateTime1.DayOfYear - dateTime2.DayOfYear;
-					HasBorn.Text = sum.ToString();
-				}
-
-				//一万天判断
-				int summ = getYearDays(Convert.ToInt32(year)) - dateTime2.DayOfYear;
-				int i = Convert.ToInt32(year);
-				DateTime dateTime = new DateTime(i, month, date);
-				for (i = Convert.ToInt32(year) + 1; 10000 - summ >= getYearDays(i) - dateTime.DayOfYear; i++)
-				{
-					summ += getYearDays(i);
-				}
-
-				int dayy = dateTime.DayOfYear + 10000 - summ;
-				for (int j = 1; j <= 12; j++)
-				{
-					for (int k = 1; k <= getMonthDays(i, j); k++)
-					{
-						DateTime dateTime3 = new DateTime(i, j, k);
-						if (dateTime3.DayOfYear == dayy)
-						{
-							万天计划.Text = i.ToString() + "." + j.ToString() + "." + k.ToString();
-							break;
-						}
-					}
-				}
+				HasBorn.Text = CaculateDaysDistance(dateTimeInputReal, DateTime.Now).ToString();
 
 
 			}
 		}
 
-        //日期比较在一年中谁先谁后
-        static bool CompareDate(DateTime dateTime1, DateTime dateTime2)
+		//日期比较在一年中谁先谁后
+		static bool CompareDate(DateTime dateTime1, DateTime dateTime2)
         {
             String[] dateTimeStr1 = DateToString(dateTime1);
             String[] dateTimeStr2 = DateToString(dateTime2);
